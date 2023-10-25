@@ -8,6 +8,8 @@ _pcb.lck
 *.tmp
 *.lck
 
+data/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
