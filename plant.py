@@ -1,5 +1,5 @@
 import os
-
+import shutil
 import time
 
 
@@ -43,6 +43,12 @@ def main(**kwargs):
     if not os.path.exists(dir_beet):
         os.makedirs(dir_beet)
         os.makedirs(f"{dir_generated}")
+
+    dir_default = "default"
+    #if default_exists
+    if os.path.exists(dir_default):
+        shutil.copytree(dir_default, dir_beet)
+
 
     #commit all kwargstest
 
