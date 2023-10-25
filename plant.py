@@ -4,20 +4,59 @@ import time
 
 
 def main(**kwargs):
+    host = kwargs.get("host")
+    user = kwargs.get("user")
+    allotment_name = kwargs.get("allotment_name")
+    
+    #get the beet
     beet = get_beet(**kwargs)
     kwargs["beet"] = beet
-    dir_beets = "beets"
+    
+    # time
+    #get current time
+    time_current = time.time()
+    #convert to string and format
+    timee = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time_current))
+    kwargs["time"] = timee
+
+    time_beet = time.strftime("%Y/%m/%d/%H_%M_%S")
+    kwargs["time_beet"] = time_beet
+
+    #folder to beet
+    folder = f"{host}/{user}/{allotment_name}/{time_beet}"
+    kwargs["folder"] = folder
+
+    id = folder.replace("/", "_")
+    id = id.replace("-", "_")
+    id = id.replace(".", "_")
+    id = id.lower()
+    kwargs["id"] = id
+
+
+    #folders
+    dir_beets = "garden"
     if not os.path.exists(dir_beets):
         os.makedirs(dir_beets)
-    #year/month/date_hour_minute_second/
-    date_beet= time.strftime("%Y/%m/%d_%H_%M_%S")
-    dir_beet = f"{dir_beets}/{date_beet}"
+
+    dir_beet = f"{dir_beets}/{time_beet}"
+    dir_generated = f"{dir_beet}/generated"
     if not os.path.exists(dir_beet):
         os.makedirs(dir_beet)
-    with open(f"{dir_beet}/beet", 'w') as f:
-        f.write(beet)
-    
+        os.makedirs(f"{dir_generated}")
 
+    #commit all kwargstest
+
+    for key, value in kwargs.items():
+        with open(f"{dir_beet}/{key}", 'w') as f:
+            f.write(value)
+            pass
+
+    import json
+    with open(f"{dir_generated}/json", 'w') as f:
+        json.dump(kwargs, f)
+    import yaml
+    with open(f"{dir_generated}/yaml", 'w') as f:
+        yaml.dump(kwargs, f)
 
 
 def get_beet(**kwargs):    
@@ -27,4 +66,8 @@ def get_beet(**kwargs):
 
 
 if __name__ == '__main__':
-    main()
+    kwargs = {}
+    kwargs["host"] = "github.com"
+    kwargs["user"] = "oomlout"
+    kwargs["allotment_name"] = "the_allotment_oomlout"
+    main(**kwargs)

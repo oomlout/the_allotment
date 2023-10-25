@@ -21,10 +21,11 @@ def sync(**kwargs):
         if '/' not in follow:
             follow = f"{follow}/the_allotment_{follow}"
         user = follow.split('/')[0]
-        url_repo = f"https://github.com/{follow}"
+        host = "github.com"
+        url_repo = f"https://{host}/{follow}"
         dir_follow = "data/follow"
-        dir_user = f"{dir_follow}/{user}"
-        dir_full = f"{dir_user}/{follow}"
+        dir_user = f"{dir_follow}/{host}/{user}"
+        dir_full = F"{dir_user}/{follow}"
         if not os.path.exists(dir_user):
             os.makedirs(dir_user)
         
