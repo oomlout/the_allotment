@@ -64,6 +64,8 @@ def main(**kwargs):
     with open(f"{dir_generated}/yaml", 'w') as f:
         yaml.dump(kwargs, f)
 
+    print(f"beet planted at {folder}")
+
 
 def get_beet(**kwargs):    
     return_value = input("whats the beet?\n  ")
