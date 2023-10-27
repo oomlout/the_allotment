@@ -37,8 +37,7 @@ def sync(**kwargs):
                 os.chdir('/')
             else:
                 #pull from data folder
-                os.chdir(dir_user)
-                os.chdir(follow)
+                os.chdir(dir_full)
                 os.system('git pull')
                 os.chdir('/')
         except Exception as e:
