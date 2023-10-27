@@ -25,7 +25,7 @@ def sync(**kwargs):
         url_repo = f"https://{host}/{follow}"
         dir_follow = "data/follow"
         dir_user = f"{dir_follow}/{host}/{user}"
-        dir_full = F"{dir_user}/{follow}"
+        dir_full = f"{dir_follow}/{host}/{follow}"
         if not os.path.exists(dir_user):
             os.makedirs(dir_user)
         
