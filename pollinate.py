@@ -24,6 +24,15 @@ deets["position_text_box"] = (764, 212)
 deets["position_add_image_initial"] = (515, 576)
 deets["position_add_image"] = (700, 385)
 
+platform = "linkedin"
+platform_details[platform] = {}
+deets = platform_details[platform]
+deets["webpage"] = "https://www.linkedin.com/feed/"
+deets["position_text_box"] = (645, 265)
+deets["position_add_image_initial"] = (874, 279)
+deets["position_add_image"] = (726, 623)
+deets["position_add_image_after"] = (1466, 965)
+
 
 platform = "mastadon"
 platform_details[platform] = {}
