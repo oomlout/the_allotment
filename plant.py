@@ -64,7 +64,7 @@ def main(**kwargs):
     with open(f"{dir_generated}/yaml", 'w') as f:
         yaml.dump(kwargs, f)
 
-    print(f"beet planted at {folder}")
+    print(f"beet planted at {dir_beet}")
 
 
 def get_beet(**kwargs):    
