@@ -28,18 +28,18 @@ def sync(**kwargs):
         dir_full = f"{dir_follow}/{host}/{follow}"
         if not os.path.exists(dir_user):
             os.makedirs(dir_user)
-        
+        cwd = os.getcwd()
         try:
             if not os.path.exists(dir_full):
                 #clone into data folder
                 os.chdir(dir_user)
                 os.system(f'git clone {url_repo}')
-                os.chdir('/')
+                os.chdir(cwd)
             else:
                 #pull from data folder
                 os.chdir(dir_full)
                 os.system('git pull')
-                os.chdir('/')
+                os.chdir(cwd)
         except Exception as e:
             print(f"Error syncing {follow}")
             print(e)
