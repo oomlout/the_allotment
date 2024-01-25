@@ -2,6 +2,7 @@ import os
 import copy
 
 def main(**kwargs):
+    print("Processing images")
     directory = kwargs.get("directory", os.getcwd())
     kwargs["directory"] = directory
     #if directory isn't an list make it one iterable make it
@@ -64,6 +65,9 @@ def process_images(**kwargs):
             for resolution in resolutions:
                 image_dst = f"{directory}/generated/image_{crop}_{resolution}.jpg"
                 image_crop.thumbnail((resolution, resolution))
+                image_dst_dir = os.path.dirname(image_dst)
+                if not os.path.exists(image_dst_dir):
+                    os.makedirs(image_dst_dir)
                 image_crop.save(image_dst)
                 print(f"   Saved {image_dst}")
 
@@ -73,11 +77,7 @@ def process_images(**kwargs):
 
 if __name__ == '__main__':
     kwargs = {}
-    cwd = os.getcwd()
-    import glob 
-    directories = glob.glob(f"{cwd}/**/image.jpg", recursive=True)
-
     
-    kwargs["directory"] = directories
+    
     main(**kwargs)
-    'C:\\gh\\the_allotment\\data\\follow\\github.com\\oomlout\\the_allotment_oomlout\\garden\\2023\\10\\25_20_49_58\\image.jpg'
+    
