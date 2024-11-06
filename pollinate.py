@@ -35,15 +35,16 @@ platform_details[platform] = {}
 deets = platform_details[platform]
 deets["webpage"] = "https://bsky.app/"
 deets["position_text_box"] = (764, 220)
-deets["position_add_image_initial"] = (515, 632)
-deets["position_add_image"] = (700, 385)
+deets["position_add_image_initial"] = (500, 585)
+deets["position_add_image"] = (680, 440)
 
 platform = "instagram"
 platform_details[platform] = {}
 deets = platform_details[platform]
 deets["webpage"] = "https://www.instagram.com/"
 deets["position_text_box"] = (1185, 280)
-deets["position_add_image_initial"] = (37, 540)
+deets["position_add_image_initial"] = [(82, 553),(82,600)]
+#deets["position_add_image_initial"] = (37, 540)
 deets["position_add_image"] = (948, 644)
 deets["position_add_image_after"] = [(1290, 190), (1450, 190)]
 
@@ -61,16 +62,17 @@ platform_details[platform] = {}
 deets = platform_details[platform]
 deets["webpage"] = "https://mastodon.social/home"
 deets["position_text_box"] = (460, 271)
-deets["position_add_image"] = (405, 370)
+deets["position_add_image"] = (377, 422)
 
 platform = "threads"
 platform_details[platform] = {}
 deets = platform_details[platform]
 deets["webpage"] = "https://www.threads.net/"
 deets["position_add_image_initial"] = (740, 180)
-deets["position_text_box"] = (739, 357)
+deets["position_text_box"] = (739, 370)
+#deets["position_text_box"] = (739, 357)
 #deets["position_add_image"] = (723, 555)
-deets["position_add_image"] = (723, 535)
+deets["position_add_image"] = (723, 550)
 
 
 platform = "twitter"
@@ -154,9 +156,11 @@ platform = "facebook_business"
 platform_details[platform] = {}
 deets = platform_details[platform]
 deets["webpage"] = "https://www.facebook.com/profile.php?id=61553257906517"
-deets["position_add_image_initial"] = [(1400,520)]
+deets["position_add_image_initial"] = [(1200,530)]
+#deets["position_add_image_initial"] = [(1200,525)]
 deets["position_add_image"] = (953, 600)
-deets["position_text_box"] = (774, 376)
+deets["position_text_box"] = (774, 350)
+#deets["position_text_box"] = (774, 376)
 
 
 def view(**kwargs):
