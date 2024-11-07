@@ -190,7 +190,13 @@ def post(**kwargs):
     time.sleep(15)
     #add image
     print("     adding image")
-    file_image = f"{folder_full}/image.png"
+    formats = ["png", "jpg", "jpeg", "gif"]
+    extension = ""
+    for f in formats:
+        extension = f
+        file_image = f"{folder_full}/image.{extension}"
+        if os.path.exists(file_image):
+            break
     #replace /
     file_image = file_image.replace("/", "\\")
     folder_image = os.path.dirname(file_image)
@@ -202,7 +208,7 @@ def post(**kwargs):
     mouse_click(details["position_add_image"])
     send_text(folder_image)
     send_enter()    
-    send_text("image.jpg")
+    send_text(f"image.{extension}")
     send_enter()    
     if "position_add_image_after" in details:
         mouse_click(details["position_add_image_after"])
