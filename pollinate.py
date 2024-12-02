@@ -98,7 +98,8 @@ deets = platform_details[platform]
 deets["webpage"] = "https://taggr.link/"
 deets["position_text_box"] = (1026, 435)
 deets["position_add_image_initial"] = (1495, 121)
-deets["position_add_image"] = (1435, 317)
+deets["position_add_image"] = (1500, 324)
+#deets["position_add_image"] = (1435, 317)
 
 platform = "telegram"
 platform_details[platform] = {}
@@ -156,8 +157,8 @@ platform = "facebook_business"
 platform_details[platform] = {}
 deets = platform_details[platform]
 deets["webpage"] = "https://www.facebook.com/profile.php?id=61553257906517"
-deets["position_add_image_initial"] = [(1200,530)]
-#deets["position_add_image_initial"] = [(1200,525)]
+deets["position_add_image_initial"] = [(1200,920)]
+#deets["position_add_image_initial"] = [(1200,530)]
 deets["position_add_image"] = (953, 600)
 deets["position_text_box"] = (774, 350)
 #deets["position_text_box"] = (774, 376)
@@ -202,6 +203,19 @@ def post(**kwargs):
     folder_image = os.path.dirname(file_image)
     if "position_add_image_initial" in details:
         initial_point = details["position_add_image_initial"]
+        #move but don't click
+        #if faceboook_business
+        if platform == "facebook_business":
+            print(f"     scrolling for {platform}")
+            mouse_move(initial_point)
+            #delay 1 second
+            #press pageup five times
+            for i in range(50):
+                pyautogui.press("up")
+                time.sleep(0.1)
+
+
+        
         #if a string
         mouse_click(details["position_add_image_initial"])  
     
@@ -239,6 +253,15 @@ def mouse_click(pos):
             pyautogui.moveTo(p)
             pyautogui.click()
             time.sleep(4)
+
+def mouse_move(pos):
+    #if pos isn't a list make it one
+    if not isinstance(pos, list):
+        pos = [pos]
+    for p in pos:
+        print(f"     moving to {p}")
+        pyautogui.moveTo(p)
+        time.sleep(4)
 
 def send_enter():
     pyautogui.press("enter")
