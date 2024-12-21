@@ -164,6 +164,23 @@ deets["position_text_box"] = (774, 350)
 #deets["position_text_box"] = (774, 376)
 
 
+platform = "makerworld"
+platform_details[platform] = {}
+deets = platform_details[platform]
+deets["webpage"] = "https://makerworld.com/en/community"
+deets["position_add_image_initial"] = [(100,200)]
+deets["position_add_image"] = (625, 253)
+deets["position_text_box"] = (675, 205)
+
+
+platform = "printables"
+platform_details[platform] = {}
+deets = platform_details[platform]
+deets["webpage"] = "https://www.printables.com/community"
+deets["position_add_image_initial"] = [(100,220)]
+deets["position_add_image"] = (670, 600)
+deets["position_text_box"] = (720, 500)
+
 def view(**kwargs):
     #open twittier in chrome
     platform = kwargs.get("platform")
