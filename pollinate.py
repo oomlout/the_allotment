@@ -181,6 +181,44 @@ deets["position_add_image_initial"] = [(100,220)]
 deets["position_add_image"] = (670, 600)
 deets["position_text_box"] = (720, 500)
 
+
+platform = "pixelfed"
+platform_details[platform] = {}
+deets = platform_details[platform]
+deets["webpage"] = "https://pixelfed.social/i/web"
+deets["position_add_image_initial"] = [(413,307)]
+deets["position_add_image"] = (975, 302)
+deets["position_text_box"] = (920, 280)
+
+
+
+platform = "flickr"
+platform_details[platform] = {}
+deets = platform_details[platform]
+deets["webpage"] = "https://www.flickr.com/photos/upload/"
+deets["position_add_image_initial"] = []#[(967,673)]
+deets["position_add_image"] = (967, 673)
+deets["position_text_box"] = (331,370)
+
+
+
+platform = "reddit_personal"
+platform_details[platform] = {}
+deets = platform_details[platform]
+deets["webpage"] = "https://www.reddit.com/user/oomloutoomlout/"
+deets["position_add_image_initial"] = [(615,531),(612,334),(685,291)]#[(967,673)]
+deets["position_add_image"] = (1020,552)
+deets["position_text_box"] = (607,369)
+
+
+platform = "reddit_community"
+platform_details[platform] = {}
+deets = platform_details[platform]
+deets["webpage"] = "https://www.reddit.com/r/oomlout/"
+deets["position_add_image_initial"] = [(1322,255),(685,291)]#[(967,673)]
+deets["position_add_image"] = (1020,552)
+deets["position_text_box"] = (607,369)
+
 def view(**kwargs):
     #open twittier in chrome
     platform = kwargs.get("platform")
